@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/KidoAklilu/simple-repo.git'
+                script {
+                    git credentialsId: 'Azure', branch: 'main', url: 'https://github.com/KidoAklilu/simple-repo.git'
+                }
             }
         }
         stage('Build') {
